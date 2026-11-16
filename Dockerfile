@@ -526,8 +526,8 @@ RUN sed -n '/^# BEGIN_NATIVE_CONSTRAINTS$/,/^# END_NATIVE_CONSTRAINTS$/ { /^# BE
 # ============================================================================
 # slime-ascend-glm53-npu
 RUN git clone --no-checkout --depth 1 https://github.com/lihanwen7/slime-ascend-glm53-npu.git /opt/src/slime-ascend \
-    && git -C /opt/src/slime-ascend fetch --depth 1 origin 8451c245c2cddadbe9883cfbcc3c0d2ae007524f \
-    && git -C /opt/src/slime-ascend checkout --detach 8451c245c2cddadbe9883cfbcc3c0d2ae007524f
+    && git -C /opt/src/slime-ascend fetch --depth 1 origin f3fea5421a0eb2e70e4f7a1f112b01a4f5e8e697 \
+    && git -C /opt/src/slime-ascend checkout --detach f3fea5421a0eb2e70e4f7a1f112b01a4f5e8e697
 
 # sgl-kernel-npu-glm53
 RUN git clone --no-checkout --depth 1 https://github.com/lihanwen7/sgl-kernel-npu-glm53.git /opt/src/sgl-kernel-npu-src \
@@ -561,8 +561,8 @@ RUN git clone --no-checkout --depth 1 https://github.com/flashserve/flash-linear
 
 # slime-glm53-npu
 RUN git clone --no-checkout --depth 1 https://github.com/lihanwen7/slime-glm53-npu.git /opt/src/slime-ascend/slime \
-    && git -C /opt/src/slime-ascend/slime fetch --depth 1 origin 161106e09b5369598fa5f9b163c456a11bfe55c5 \
-    && git -C /opt/src/slime-ascend/slime checkout --detach 161106e09b5369598fa5f9b163c456a11bfe55c5
+    && git -C /opt/src/slime-ascend/slime fetch --depth 1 origin d76025fd81df1b872f73b66bf679d4e838b0ad49 \
+    && git -C /opt/src/slime-ascend/slime checkout --detach d76025fd81df1b872f73b66bf679d4e838b0ad49
 
 # cann-custom-ops/src/cann-recipes-infer
 RUN git clone --no-checkout --depth 1 https://gitcode.com/cann/cann-recipes-infer.git /opt/src/cann-custom-ops/src/cann-recipes-infer \
@@ -693,7 +693,7 @@ RUN site=$(python -c 'import sysconfig; print(sysconfig.get_path("purelib"))') \
     && test "$#" = 1 && test -f "$1" \
     && ln -s "deep_ep/${1##*/}" "$site/${1##*/}"
 
-# Compile NPU operator Python/C++ bindings during image build.
+# Check the installed operator Python APIs during image build.
 ENV TORCH_EXTENSIONS_DIR=/opt/torch-extensions
 RUN python -c 'from cann_ops_transformer.ops import mhc_pre_sinkhorn, mhc_pre_sinkhorn_backward, mhc_post, mhc_post_backward, sparse_flash_mla, sparse_flash_mla_grad' \
     && python -m pip check \
