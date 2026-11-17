@@ -541,8 +541,8 @@ RUN git clone --no-checkout --depth 1 https://github.com/lihanwen7/sglang-glm53-
 
 # Megatron-LM-glm53-npu
 RUN git clone --no-checkout --depth 1 https://github.com/lihanwen7/Megatron-LM-glm53-npu.git /opt/src/Megatron-LM \
-    && git -C /opt/src/Megatron-LM fetch --depth 1 origin 2715c3d1b86dc04f48c7375bfd3736ecb2fabfee \
-    && git -C /opt/src/Megatron-LM checkout --detach 2715c3d1b86dc04f48c7375bfd3736ecb2fabfee
+    && git -C /opt/src/Megatron-LM fetch --depth 1 origin 7d28aa1527b163f843032fbea9f1d4448f8d62a1 \
+    && git -C /opt/src/Megatron-LM checkout --detach 7d28aa1527b163f843032fbea9f1d4448f8d62a1
 
 # MegatronAdaptor
 RUN git clone --no-checkout --depth 1 https://gitcode.com/Ascend/MegatronAdaptor.git /opt/src/MegatronAdaptor \
